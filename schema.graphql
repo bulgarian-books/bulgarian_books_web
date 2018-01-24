@@ -1,0 +1,47 @@
+schema {
+  query: RootQueryType
+}
+
+type Author {
+  id: ID
+  name: String
+  nationality: String
+}
+
+type Book {
+  category: Category
+  genre: Genre
+  language: Language
+  publisher: Publisher
+  title: String
+}
+
+type Category {
+  books: [Book]
+  name: String
+}
+
+type Genre {
+  books: [Book]
+  name: String
+}
+
+type Language {
+  books: [Book]
+  name: String
+}
+
+type Publisher {
+  books: [Book]
+  name: String
+}
+
+type RootQueryType {
+  authors: [Author]
+  books: [Book]
+  categories: [Category]
+  genres: [Genre]
+  languages: [Language]
+  publishers: [Publisher]
+}
+
