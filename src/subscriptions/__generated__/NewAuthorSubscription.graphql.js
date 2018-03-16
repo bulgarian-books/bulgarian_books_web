@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 69a4ea20e7bb993f3ec8f832494d8abd
+ * @relayHash f00cb64ad19ba5cdedc58d85b9b32615
  */
 
 /* eslint-disable */
@@ -9,19 +9,19 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type AppQueryVariables = {| |};
-export type AppQueryResponse = {|
-  +authors: ?$ReadOnlyArray<?{|
+export type NewAuthorSubscriptionVariables = {| |};
+export type NewAuthorSubscriptionResponse = {|
+  +newAuthor: ?{|
     +id: ?string,
     +name: ?string,
-  |}>,
+  |},
 |};
 */
 
 
 /*
-query AppQuery {
-  authors {
+subscription NewAuthorSubscription {
+  newAuthor {
     id
     name
   }
@@ -33,11 +33,11 @@ var v0 = [
   {
     "kind": "LinkedField",
     "alias": null,
-    "name": "authors",
+    "name": "newAuthor",
     "storageKey": null,
     "args": null,
     "concreteType": "Author",
-    "plural": true,
+    "plural": false,
     "selections": [
       {
         "kind": "ScalarField",
@@ -58,26 +58,26 @@ var v0 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "AppQuery",
+  "operationKind": "subscription",
+  "name": "NewAuthorSubscription",
   "id": null,
-  "text": "query AppQuery {\n  authors {\n    id\n    name\n  }\n}\n",
+  "text": "subscription NewAuthorSubscription {\n  newAuthor {\n    id\n    name\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "AppQuery",
-    "type": "RootQueryType",
+    "name": "NewAuthorSubscription",
+    "type": "RootSubscriptionType",
     "metadata": null,
     "argumentDefinitions": [],
     "selections": v0
   },
   "operation": {
     "kind": "Operation",
-    "name": "AppQuery",
+    "name": "NewAuthorSubscription",
     "argumentDefinitions": [],
     "selections": v0
   }
 };
 })();
-(node/*: any*/).hash = '16145b04d73e34a476c44c5978444255';
+(node/*: any*/).hash = '3749ee06130f9b9551f8ff0e5c9296e9';
 module.exports = node;

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 69a4ea20e7bb993f3ec8f832494d8abd
+ * @relayHash ee3c90cae59732385425cc0d186334b4
  */
 
 /* eslint-disable */
@@ -9,21 +9,21 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type AppQueryVariables = {| |};
-export type AppQueryResponse = {|
-  +authors: ?$ReadOnlyArray<?{|
+export type BooksQueryVariables = {| |};
+export type BooksQueryResponse = {|
+  +books: ?$ReadOnlyArray<?{|
     +id: ?string,
-    +name: ?string,
+    +title: ?string,
   |}>,
 |};
 */
 
 
 /*
-query AppQuery {
-  authors {
+query BooksQuery {
+  books {
     id
-    name
+    title
   }
 }
 */
@@ -33,10 +33,10 @@ var v0 = [
   {
     "kind": "LinkedField",
     "alias": null,
-    "name": "authors",
+    "name": "books",
     "storageKey": null,
     "args": null,
-    "concreteType": "Author",
+    "concreteType": "Book",
     "plural": true,
     "selections": [
       {
@@ -49,7 +49,7 @@ var v0 = [
       {
         "kind": "ScalarField",
         "alias": null,
-        "name": "name",
+        "name": "title",
         "args": null,
         "storageKey": null
       }
@@ -59,13 +59,13 @@ var v0 = [
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "AppQuery",
+  "name": "BooksQuery",
   "id": null,
-  "text": "query AppQuery {\n  authors {\n    id\n    name\n  }\n}\n",
+  "text": "query BooksQuery {\n  books {\n    id\n    title\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "AppQuery",
+    "name": "BooksQuery",
     "type": "RootQueryType",
     "metadata": null,
     "argumentDefinitions": [],
@@ -73,11 +73,11 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "AppQuery",
+    "name": "BooksQuery",
     "argumentDefinitions": [],
     "selections": v0
   }
 };
 })();
-(node/*: any*/).hash = '16145b04d73e34a476c44c5978444255';
+(node/*: any*/).hash = '163b7f396d773e4c813a5ca58ce1a72c';
 module.exports = node;

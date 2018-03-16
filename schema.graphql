@@ -1,5 +1,7 @@
 schema {
   query: RootQueryType
+  mutation: RootMutationType
+  subscription: RootSubscriptionType
 }
 
 type Author {
@@ -8,12 +10,22 @@ type Author {
   nationality: String
 }
 
+input AuthorInput {
+  name: String!
+  nationality: String
+}
+
 type Book {
   category: Category
   genre: Genre
+  id: ID
   language: Language
   publisher: Publisher
   title: String
+}
+
+input BookInput {
+  title: String!
 }
 
 type Category {
@@ -36,6 +48,11 @@ type Publisher {
   name: String
 }
 
+type RootMutationType {
+  createAuthor(input: AuthorInput!): Author
+  createBook(input: BookInput!): Book
+}
+
 type RootQueryType {
   authors: [Author]
   books: [Book]
@@ -43,5 +60,10 @@ type RootQueryType {
   genres: [Genre]
   languages: [Language]
   publishers: [Publisher]
+}
+
+type RootSubscriptionType {
+  newAuthor: Author
+  newBook: Book
 }
 

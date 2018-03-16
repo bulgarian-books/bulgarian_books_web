@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { QueryRenderer, graphql } from 'react-relay';
-
 import environment from './relay-environment';
+import NewAuthorSubscription from './subscriptions/NewAuthorSubscription';
 
 const query = graphql`
   query AppQuery { authors { id name } }
@@ -10,9 +9,22 @@ const query = graphql`
 
 class App extends Component {
   
+  componentDidMount() {
+    NewAuthorSubscription();
+  }
+
   renderAuthor(author) {
     return (
-        <li key={author.id}>{author.name}</li>
+      <div key={author.id} className="col-sm-6">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{author.name}</h5>
+            <input type="button" value="books" className="btn btn-primary" />
+            <input type="button" value="notify me about this author" className="btn btn-primary" style={{float: 'right'}} />
+          </div>
+        </div>
+        <br />
+      </div>
     );
   }
   render() {
